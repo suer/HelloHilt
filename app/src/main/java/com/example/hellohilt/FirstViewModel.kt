@@ -1,9 +1,14 @@
 package com.example.hellohilt
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class FirstViewModel : ViewModel() {
+@HiltViewModel
+class FirstViewModel @Inject constructor(
+    private val fooRepository: FooRepository
+) : ViewModel() {
     fun getText() : String {
-        return FooRepository().fetch().toString()
+        return fooRepository.fetch().toString()
     }
 }
