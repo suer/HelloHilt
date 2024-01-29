@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.hellohilt.databinding.FragmentFirstBinding
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
