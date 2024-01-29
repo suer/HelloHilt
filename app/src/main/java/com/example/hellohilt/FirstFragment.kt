@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.hellohilt.databinding.FragmentFirstBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
+@AndroidEntryPoint
 class FirstFragment : Fragment() {
 
     private val viewModel: FirstViewModel by viewModels()
