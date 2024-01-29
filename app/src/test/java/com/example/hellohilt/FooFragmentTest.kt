@@ -2,6 +2,9 @@ package com.example.hellohilt
 
 import android.widget.Button
 import android.widget.TextView
+import com.github.takahirom.roborazzi.RobolectricDeviceQualifiers
+import com.github.takahirom.roborazzi.captureRoboImage
+import com.github.takahirom.roborazzi.captureScreenRoboImage
 
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -13,9 +16,11 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
+import org.robolectric.annotation.GraphicsMode
 
 @HiltAndroidTest
-@Config(application = HiltTestApplication::class)
+@GraphicsMode(GraphicsMode.Mode.NATIVE)
+@Config(application = HiltTestApplication::class, qualifiers = RobolectricDeviceQualifiers.Pixel5)
 @RunWith(RobolectricTestRunner::class)
 class FooFragmentTest {
     @get:Rule
@@ -33,6 +38,9 @@ class FooFragmentTest {
             val button = view?.findViewById<Button>(R.id.button)
             button?.performClick()
             Assert.assertEquals(textView?.text, "-1")
+            captureScreenRoboImage(
+                "images/FooFragmentTest_testClickButton.png"
+            )
         }
     }
 }
