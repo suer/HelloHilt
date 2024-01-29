@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.hellohilt.databinding.FragmentFirstBinding
 
@@ -12,6 +13,8 @@ import com.example.hellohilt.databinding.FragmentFirstBinding
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 class FirstFragment : Fragment() {
+
+    private val viewModel: FirstViewModel by viewModels()
 
     private var _binding: FragmentFirstBinding? = null
 
@@ -34,6 +37,10 @@ class FirstFragment : Fragment() {
 
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+        }
+
+        binding.button.setOnClickListener {
+            binding.textviewFirst.text = viewModel.getText()
         }
     }
 
