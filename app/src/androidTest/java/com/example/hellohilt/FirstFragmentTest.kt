@@ -7,6 +7,8 @@ import dagger.hilt.android.testing.HiltAndroidTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import androidx.test.core.app.takeScreenshot
+import androidx.test.core.graphics.writeToTestStorage
 
 @HiltAndroidTest
 class FirstFragmentTest {
@@ -25,5 +27,6 @@ class FirstFragmentTest {
             val button = view?.findViewById<Button>(R.id.button)
             button?.performClick()
         }
+        takeScreenshot().writeToTestStorage("screenshot")
     }
 }

@@ -18,6 +18,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "com.example.hellohilt.HiltTestRunner"
+        testInstrumentationRunnerArguments useTestStorageService: 'true'
     }
 
     buildTypes {
@@ -71,6 +72,7 @@ dependencies {
     androidTestImplementation 'com.google.dagger:hilt-android-testing:2.44'
     kaptAndroidTest 'com.google.dagger:hilt-android-compiler:2.44'
 
+    androidTestUtil "androidx.test.services:test-services:1.4.2"
 }
 
 kapt {
