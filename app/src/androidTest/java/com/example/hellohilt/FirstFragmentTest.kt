@@ -22,11 +22,13 @@ class FirstFragmentTest {
 
     @Test
     fun testClickButton() {
+        takeScreenshot().writeToTestStorage("screenshot1")
+
         launchFragmentInHiltContainer<FirstFragment> {
             val textView = view?.findViewById<TextView>(R.id.textview_first)
             val button = view?.findViewById<Button>(R.id.button)
             button?.performClick()
         }
-        takeScreenshot().writeToTestStorage("screenshot")
+        takeScreenshot().writeToTestStorage("screenshot2")
     }
 }
